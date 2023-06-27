@@ -12,7 +12,7 @@ class HomeControllerDataSource {
     private(set) var items: [ListItem] = []
     
     init() {
-        items.append(contentsOf: [ListItem(title: "UICollectionView with UIContextMenu", description: "Explore about UIContextMenu by configuring actions, providing custom previews, sub-menus, and handling preview interactions.", slug: "GitHub Followers")])
+        items.append(contentsOf: [ListItem(title: "UICollectionView with UIContextMenu", description: "Explore about UIContextMenu by configuring actions, providing custom previews, sub-menus, and handling preview interactions.", slug: "GitHub Followers", navigationTitle: "GithubFollowers")])
     }
 }
 
@@ -21,9 +21,10 @@ struct ListItem {
     let title: String
     let description: String
     let slug: String
+    let navigationTitle: String
     
     var navigationDisplayTitle: String {
-        "#" + slug.replacingOccurrences(of: " ", with: "_").lowercased()
+        "#" + navigationTitle
     }
     
     func listTitle(for index: Int) -> String {
