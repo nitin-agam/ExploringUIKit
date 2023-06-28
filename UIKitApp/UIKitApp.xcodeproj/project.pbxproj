@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70C33A72A4B248D00F5B05C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */; };
 		C73D8D282A49B01200A1997A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D272A49B01200A1997A /* UILabel+Extension.swift */; };
 		C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */; };
+		C73D8D2D2A4A9FD000A1997A /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */; };
+		C73D8D2F2A4AA07A00A1997A /* ChatMessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D2E2A4AA07A00A1997A /* ChatMessageTableCell.swift */; };
+		C73D8D312A4AA0A100A1997A /* ChatMessageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D302A4AA0A100A1997A /* ChatMessageDataSource.swift */; };
+		C73D8D332A4AA14A00A1997A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D322A4AA14A00A1997A /* String+Extension.swift */; };
+		C73D8D352A4AA16300A1997A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D342A4AA16300A1997A /* Date+Extension.swift */; };
+		C73D8D372A4AA4EA00A1997A /* ChatHeaderDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D362A4AA4EA00A1997A /* ChatHeaderDateLabel.swift */; };
 		C75C8C782A4209F100B46DEF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C8C772A4209F100B46DEF /* UICollectionView+Extension.swift */; };
 		C75C8C7A2A42BFA600B46DEF /* GitHubProfilePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C8C792A42BFA600B46DEF /* GitHubProfilePreviewController.swift */; };
 		C75C8C7C2A44498A00B46DEF /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C8C7B2A44498A00B46DEF /* UIStackView+Extension.swift */; };
@@ -30,8 +37,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D272A49B01200A1997A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
+		C73D8D2E2A4AA07A00A1997A /* ChatMessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageTableCell.swift; sourceTree = "<group>"; };
+		C73D8D302A4AA0A100A1997A /* ChatMessageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDataSource.swift; sourceTree = "<group>"; };
+		C73D8D322A4AA14A00A1997A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C73D8D342A4AA16300A1997A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		C73D8D362A4AA4EA00A1997A /* ChatHeaderDateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderDateLabel.swift; sourceTree = "<group>"; };
 		C75C8C772A4209F100B46DEF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		C75C8C792A42BFA600B46DEF /* GitHubProfilePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProfilePreviewController.swift; sourceTree = "<group>"; };
 		C75C8C7B2A44498A00B46DEF /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
@@ -65,6 +79,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C70C33A82A4B249800F5B05C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C7809DD32A40BACD00206C53 /* UIView+Extension.swift */,
+				C7809DD52A40BB4B00206C53 /* UITableView+Extension.swift */,
+				C75C8C772A4209F100B46DEF /* UICollectionView+Extension.swift */,
+				C75C8C7B2A44498A00B46DEF /* UIStackView+Extension.swift */,
+				C73D8D272A49B01200A1997A /* UILabel+Extension.swift */,
+				C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */,
+				C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		C70C33A92A4B24A400F5B05C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				C75C8C7D2A449A9800B46DEF /* Int+Extension.swift */,
+				C73D8D322A4AA14A00A1997A /* String+Extension.swift */,
+				C73D8D342A4AA16300A1997A /* Date+Extension.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C73D8D2B2A4A9FB800A1997A /* ChatUI */ = {
+			isa = PBXGroup;
+			children = (
+				C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */,
+				C73D8D2E2A4AA07A00A1997A /* ChatMessageTableCell.swift */,
+				C73D8D302A4AA0A100A1997A /* ChatMessageDataSource.swift */,
+				C73D8D362A4AA4EA00A1997A /* ChatHeaderDateLabel.swift */,
+			);
+			path = ChatUI;
+			sourceTree = "<group>";
+		};
 		C7809DA42A40A1A200206C53 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +166,7 @@
 				C7809DCF2A40B90200206C53 /* Common */,
 				C7809DC72A40B63F00206C53 /* Home */,
 				C7809DCC2A40B8BB00206C53 /* GitHub Followers */,
+				C73D8D2B2A4A9FB800A1997A /* ChatUI */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -153,13 +203,8 @@
 		C7809DD22A40BAAC00206C53 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C7809DD32A40BACD00206C53 /* UIView+Extension.swift */,
-				C7809DD52A40BB4B00206C53 /* UITableView+Extension.swift */,
-				C75C8C772A4209F100B46DEF /* UICollectionView+Extension.swift */,
-				C75C8C7B2A44498A00B46DEF /* UIStackView+Extension.swift */,
-				C75C8C7D2A449A9800B46DEF /* Int+Extension.swift */,
-				C73D8D272A49B01200A1997A /* UILabel+Extension.swift */,
-				C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */,
+				C70C33A82A4B249800F5B05C /* UIKit */,
+				C70C33A92A4B24A400F5B05C /* Foundation */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,12 +291,19 @@
 				C73D8D282A49B01200A1997A /* UILabel+Extension.swift in Sources */,
 				C7809DDD2A41E74000206C53 /* BaseCollectionCell.swift in Sources */,
 				C75C8C7E2A449A9800B46DEF /* Int+Extension.swift in Sources */,
+				C73D8D312A4AA0A100A1997A /* ChatMessageDataSource.swift in Sources */,
+				C73D8D2D2A4A9FD000A1997A /* ChatMessageViewController.swift in Sources */,
 				C75C8C7A2A42BFA600B46DEF /* GitHubProfilePreviewController.swift in Sources */,
+				C73D8D352A4AA16300A1997A /* Date+Extension.swift in Sources */,
 				C7809DD42A40BACD00206C53 /* UIView+Extension.swift in Sources */,
 				C7809DD92A40BBC600206C53 /* BaseTableCell.swift in Sources */,
+				C70C33A72A4B248D00F5B05C /* UIColor+Extension.swift in Sources */,
 				C7809DD12A40B91200206C53 /* BaseViewController.swift in Sources */,
 				C7809DD62A40BB4B00206C53 /* UITableView+Extension.swift in Sources */,
+				C73D8D372A4AA4EA00A1997A /* ChatHeaderDateLabel.swift in Sources */,
 				C7809DCE2A40B8F500206C53 /* GitHubFollowersController.swift in Sources */,
+				C73D8D2F2A4AA07A00A1997A /* ChatMessageTableCell.swift in Sources */,
+				C73D8D332A4AA14A00A1997A /* String+Extension.swift in Sources */,
 				C75C8C782A4209F100B46DEF /* UICollectionView+Extension.swift in Sources */,
 				C75C8C7C2A44498A00B46DEF /* UIStackView+Extension.swift in Sources */,
 				C7809DE12A42087800206C53 /* GitHubFollowersDataSource.swift in Sources */,

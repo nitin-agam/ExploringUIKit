@@ -57,8 +57,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         var controller: UIViewController?
         
         switch indexPath.row {
-        case 0:
-        controller = GitHubFollowersController()
+        case 0: controller = GitHubFollowersController()
+        case 1: controller = ChatMessageViewController(style: .grouped)
             
         default: break
         }
