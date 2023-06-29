@@ -15,7 +15,7 @@ class ChatHeaderDateLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
         textAlignment = .center
         font = .systemFont(ofSize: 16)
-        backgroundColor = .whatsAppHeaderBack
+        backgroundColor = .tertiarySystemGroupedBackground
     }
     
     required init?(coder: NSCoder) {

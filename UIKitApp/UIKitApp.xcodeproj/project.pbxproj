@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C70C33A72A4B248D00F5B05C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */; };
+		C70C33B92A4D855400F5B05C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33B82A4D855400F5B05C /* UIButton+Extension.swift */; };
 		C73D8D282A49B01200A1997A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D272A49B01200A1997A /* UILabel+Extension.swift */; };
 		C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */; };
 		C73D8D2D2A4A9FD000A1997A /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C70C33B82A4D855400F5B05C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D272A49B01200A1997A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				C73D8D272A49B01200A1997A /* UILabel+Extension.swift */,
 				C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */,
 				C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */,
+				C70C33B82A4D855400F5B05C /* UIButton+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				C73D8D372A4AA4EA00A1997A /* ChatHeaderDateLabel.swift in Sources */,
 				C7809DCE2A40B8F500206C53 /* GitHubFollowersController.swift in Sources */,
 				C73D8D2F2A4AA07A00A1997A /* ChatMessageTableCell.swift in Sources */,
+				C70C33B92A4D855400F5B05C /* UIButton+Extension.swift in Sources */,
 				C73D8D332A4AA14A00A1997A /* String+Extension.swift in Sources */,
 				C75C8C782A4209F100B46DEF /* UICollectionView+Extension.swift in Sources */,
 				C75C8C7C2A44498A00B46DEF /* UIStackView+Extension.swift in Sources */,
