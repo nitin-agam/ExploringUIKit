@@ -195,7 +195,7 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let firstMessageInSection = dataSource.messageGroups[section].first {
             let dateLabel = ChatHeaderDateLabel()
-            dateLabel.text = firstMessageInSection.date.asString()
+            dateLabel.text = firstMessageInSection.date.chatCenterDisplayTime()
             
             let containerView = UIView()
             containerView.addSubview(dateLabel)

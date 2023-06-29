@@ -51,7 +51,7 @@ class ChatMessageTableCell: BaseTableCell {
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: textMargin),
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(2 * textMargin)),
-            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250),
+            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
             
             bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -textMargin),
             bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -textMargin),

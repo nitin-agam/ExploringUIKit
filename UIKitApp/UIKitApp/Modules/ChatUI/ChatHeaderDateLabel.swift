@@ -11,7 +11,7 @@ class ChatHeaderDateLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textColor = .label
+        textColor = .secondaryLabel
         translatesAutoresizingMaskIntoConstraints = false
         textAlignment = .center
         font = .systemFont(ofSize: 16)
