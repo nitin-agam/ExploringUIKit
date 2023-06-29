@@ -11,8 +11,8 @@ class ChatMessageTableCell: BaseTableCell {
     
     private let messageLabel = UILabel(font: .systemFont(ofSize: 17), lines: 0)
     private let bubbleBackgroundView = UIView()
-    private var leadingConstraint: NSLayoutConstraint?
-    private var trailingConstraint: NSLayoutConstraint?
+    private var leadingConstraint: NSLayoutConstraint!
+    private var trailingConstraint: NSLayoutConstraint!
     private let textMargin: CGFloat = 12
     
     var chatMessage: ChatMessage? {
@@ -40,18 +40,16 @@ class ChatMessageTableCell: BaseTableCell {
     override func initialSetup() {
         super.initialSetup()
         
-        bubbleBackgroundView.backgroundColor = .yellow
         bubbleBackgroundView.layer.cornerRadius = 12
         bubbleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addSubviews(bubbleBackgroundView, messageLabel)
-        
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: textMargin),
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(2 * textMargin)),
-            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
+            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 280),
             
             bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -textMargin),
             bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -textMargin),
@@ -59,10 +57,10 @@ class ChatMessageTableCell: BaseTableCell {
             bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: textMargin),
         ])
         
-        leadingConstraint = messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
-        leadingConstraint?.isActive = false
+        leadingConstraint = messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2 * textMargin)
+        leadingConstraint.isActive = false
         
-        trailingConstraint = messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
-        trailingConstraint?.isActive = true
+        trailingConstraint = messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(2 * textMargin))
+        trailingConstraint.isActive = false
     }
 }

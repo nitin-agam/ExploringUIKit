@@ -27,7 +27,7 @@ class ChatMessageViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.contentInset = .init(top: 20, left: 0, bottom: 20, right: 0)
+      //  tableView.contentInset = .init(top: 20, left: 0, bottom: 20, right: 0)
         return tableView
     }()
     
