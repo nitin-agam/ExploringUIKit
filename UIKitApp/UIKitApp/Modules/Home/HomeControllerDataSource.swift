@@ -14,7 +14,7 @@ class HomeControllerDataSource {
     init() {
         items.append(contentsOf:
                         [ListItem(title: "UICollectionView with UIContextMenu", description: "Explore about UIContextMenu by configuring actions, providing custom previews, sub-menus, and handling preview interactions.", slug: "GitHub Followers", navigationTitle: "GithubFollowers"),
-                         ListItem(title: "Chat Messages using UITableView", description: "Explore about to create chat messages user interface programatically using single cell.", slug: "Chat Messages", navigationTitle: "ChatMessages")]
+                         ListItem(title: "Chat Messages using UITableView", description: "Explore about to create UI for chat messages using single cell and message input view programatically.", slug: "Chat Messages", navigationTitle: "ChatMessages")]
         )
     }
 }

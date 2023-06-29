@@ -7,6 +7,13 @@
 
 import UIKit
 
+extension UIColor {
+    static let whatsAppSentMessage = UIColor(named: "WhatsAppSentMessage")!
+    static let whatsAppReceivedMessage = UIColor(named: "WhatsAppReceivedMessage")!
+    static let whatsAppHeaderBack = UIColor(named: "WhatsAppHeaderBack")!
+    static let chatTextViewBackground = UIColor(named: "ChatTextViewBackground")!
+}
+
 class ChatMessageViewController: BaseViewController {
     
     // MARK: - Properties
@@ -20,6 +27,7 @@ class ChatMessageViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = .init(top: 20, left: 0, bottom: 20, right: 0)
         return tableView
     }()
     
@@ -48,7 +56,7 @@ class ChatMessageViewController: BaseViewController {
         textView.textColor = UIColor.label
         textView.showsVerticalScrollIndicator = false
         textView.dataDetectorTypes = []
-        textView.backgroundColor = .white
+        textView.backgroundColor = .chatTextViewBackground
         textView.autocapitalizationType = .sentences
         textView.layer.cornerRadius = 21.0
         textView.layer.borderColor = UIColor.quaternaryLabel.cgColor
@@ -84,6 +92,7 @@ class ChatMessageViewController: BaseViewController {
         addNotificationObservers()
         initialSetup()
         dataSource.groupMessagesByDate()
+        updateTableView(true)
     }
     
     
@@ -144,6 +153,16 @@ class ChatMessageViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func updateTableView(_ shouldScrollToBottom: Bool = false) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            if shouldScrollToBottom {
+                self.tableView.safeScrollToBottom(animated: false)
+            }
+        }
+    }
+    
+    
     // MARK: - Messages Methods
     @objc private func handleSendMessageClicked() {
         guard messageTextView.text.isEmpty == false else { return }
@@ -152,40 +171,12 @@ class ChatMessageViewController: BaseViewController {
     }
     
     @objc private func handleAddMediaClicked() {
-        
+        // open photo gallery to pick media message.
     }
     
     private func sendTextMessage(_ message: String) {
-        //        let newMessage = MSChatMessage(["content": message, "createdAt": "", "isSent": true])
-        //        newMessage.digest = UUID().uuidString
-        //        insertMessage(newMessage)
-        //        messageTextView.text.removeAll()
-        //        placeholderLabel.isHidden = !messageTextView.text.isEmpty
-        //        resetMessageTextViewIfNeeded()
-        //        self.updateTimeRemainingView()
-    }
-    
-    //    private func insertMessage(_ message: MSChatMessage) {
-    //        self.dataSource.sendMessage(message)
-    //    }
-    
-    //    private func insertReceivedMessageCells(indexPaths: [IndexPath]) {
-    //        self.tableView.beginUpdates()
-    //        self.tableView.insertRows(at: indexPaths, with: .bottom)
-    //        self.tableView.endUpdates()
-    //        self.tableView.safeScrollToBottom(animated: true)
-    //        self.dataSource.resumeMessageQueue()
-    //        self.updateTimeRemainingView()
-    //    }
-    
-    private func insertAndReload(indexPaths: [IndexPath]) {
-        //        self.tableView.performBatchUpdates {
-        //            self.tableView.insertRows(at: indexPaths, with: .automatic)
-        //        } completion: { isFinished in
-        //            if isFinished {
-        //                self.isFetchingEnabled = true
-        //            }
-        //        }
+        messageTextView.text.removeAll()
+        resetMessageTextViewIfNeeded()
     }
 }
 

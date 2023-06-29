@@ -11,12 +11,6 @@ infix operator |: AdditionPrecedence
 
 public extension UIColor {
     
-    static let whatsAppSentMessage = UIColor(named: "WhatsAppSentMessage")!
-    static let whatsAppReceivedMessage = UIColor(named: "WhatsAppReceivedMessage")!
-    static let whatsAppHeaderBack = UIColor(named: "WhatsAppHeaderBack")!
-    static let chatBackgroundGrayed = UIColor(named: "ChatBackgroundGrayed")!
-    
-    
     // MARK: - Utility Functions
     static func | (lightMode: UIColor, darkMode: UIColor) -> UIColor {
         guard #available(iOS 13.0, *) else { return lightMode }
