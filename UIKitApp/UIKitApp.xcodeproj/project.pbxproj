@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C70C33A72A4B248D00F5B05C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */; };
 		C70C33B92A4D855400F5B05C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33B82A4D855400F5B05C /* UIButton+Extension.swift */; };
+		C70C33BC2A4F1D2600F5B05C /* home_list.json in Resources */ = {isa = PBXBuildFile; fileRef = C70C33BB2A4F1D2600F5B05C /* home_list.json */; };
+		C70C33BF2A4F1EAF00F5B05C /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33BE2A4F1EAF00F5B05C /* CommonUtility.swift */; };
 		C73D8D282A49B01200A1997A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D272A49B01200A1997A /* UILabel+Extension.swift */; };
 		C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */; };
 		C73D8D2D2A4A9FD000A1997A /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		C70C33A62A4B248D00F5B05C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C70C33B82A4D855400F5B05C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		C70C33BB2A4F1D2600F5B05C /* home_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = home_list.json; sourceTree = "<group>"; };
+		C70C33BE2A4F1EAF00F5B05C /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		C73D8D272A49B01200A1997A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,14 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		C70C33BD2A4F1E8E00F5B05C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C70C33BE2A4F1EAF00F5B05C /* CommonUtility.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		C73D8D2B2A4A9FB800A1997A /* ChatUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 		C7809DAF2A40A1A200206C53 /* UIKitApp */ = {
 			isa = PBXGroup;
 			children = (
+				C70C33BD2A4F1E8E00F5B05C /* Managers */,
 				C7809DD72A40BBB700206C53 /* Views */,
 				C7809DD22A40BAAC00206C53 /* Extensions */,
 				C7809DC42A40B53D00206C53 /* AppDelegate */,
@@ -180,6 +193,7 @@
 				C7809DC82A40B66000206C53 /* HomeViewController.swift */,
 				C7809DCA2A40B83800206C53 /* HomeControllerDataSource.swift */,
 				C7809DDA2A40BC4200206C53 /* HomeListItemTableCell.swift */,
+				C70C33BB2A4F1D2600F5B05C /* home_list.json */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -280,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7809DBD2A40A1A400206C53 /* LaunchScreen.storyboard in Resources */,
+				C70C33BC2A4F1D2600F5B05C /* home_list.json in Resources */,
 				C7809DBA2A40A1A400206C53 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +324,7 @@
 				C70C33B92A4D855400F5B05C /* UIButton+Extension.swift in Sources */,
 				C73D8D332A4AA14A00A1997A /* String+Extension.swift in Sources */,
 				C75C8C782A4209F100B46DEF /* UICollectionView+Extension.swift in Sources */,
+				C70C33BF2A4F1EAF00F5B05C /* CommonUtility.swift in Sources */,
 				C75C8C7C2A44498A00B46DEF /* UIStackView+Extension.swift in Sources */,
 				C7809DE12A42087800206C53 /* GitHubFollowersDataSource.swift in Sources */,
 				C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */,

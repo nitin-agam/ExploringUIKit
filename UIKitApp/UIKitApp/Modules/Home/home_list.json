@@ -1,0 +1,20 @@
+[
+    {
+        "title": "UICollectionView with UIContextMenu",
+        "description": "Explore about UIContextMenu by configuring actions, providing custom previews, sub-menus, and handling preview interactions.",
+        "slug": "GitHub Followers",
+        "navigationTitle": "GithubFollowers"
+    },
+    {
+        "title": "Chat Messages using UITableView",
+        "description": "Explore about to create UI for chat messages using single cell and message input view programatically.",
+        "slug": "Chat Messages",
+        "navigationTitle": "ChatMessages"
+    },
+    {
+        "title": "Photo Gallery with Zoom in/out",
+        "description": "Learn how to create a photo gallery.",
+        "slug": "Photo Gallery",
+        "navigationTitle": "PhotoGallery"
+    }
+]

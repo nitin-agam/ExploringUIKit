@@ -12,14 +12,16 @@ class HomeControllerDataSource {
     private(set) var items: [ListItem] = []
     
     init() {
-        items.append(contentsOf:
-                        [ListItem(title: "UICollectionView with UIContextMenu", description: "Explore about UIContextMenu by configuring actions, providing custom previews, sub-menus, and handling preview interactions.", slug: "GitHub Followers", navigationTitle: "GithubFollowers"),
-                         ListItem(title: "Chat Messages using UITableView", description: "Explore about to create UI for chat messages using single cell and message input view programatically.", slug: "Chat Messages", navigationTitle: "ChatMessages")]
-        )
+        guard let homeListData = CommonUtility.readJSON(forName: "home_list") else { return }
+        do {
+            self.items = try JSONDecoder().decode([ListItem].self, from: homeListData)
+        } catch {
+            print("Something is wrong while decoding home list data.")
+        }
     }
 }
 
-struct ListItem {
+struct ListItem: Codable {
     
     let title: String
     let description: String
