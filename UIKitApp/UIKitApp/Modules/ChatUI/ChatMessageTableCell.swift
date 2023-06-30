@@ -18,7 +18,7 @@ class ChatMessageTableCell: BaseTableCell {
     var chatMessage: ChatMessage? {
         didSet {
             guard let chatMessage = chatMessage else { return }
-            bubbleBackgroundView.backgroundColor = chatMessage.isIncoming ? .whatsAppReceivedMessage : .whatsAppSentMessage
+            bubbleBackgroundView.backgroundColor = chatMessage.isIncoming ? .ChatMessage.receivedMessage : .ChatMessage.sentMessage
             messageLabel.textColor = .label
             
             let paragraph = NSMutableParagraphStyle()

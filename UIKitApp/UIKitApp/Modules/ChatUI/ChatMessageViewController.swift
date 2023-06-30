@@ -8,10 +8,12 @@
 import UIKit
 
 extension UIColor {
-    static let whatsAppSentMessage = UIColor(named: "WhatsAppSentMessage")!
-    static let whatsAppReceivedMessage = UIColor(named: "WhatsAppReceivedMessage")!
-    static let whatsAppHeaderBack = UIColor(named: "WhatsAppHeaderBack")!
-    static let chatTextViewBackground = UIColor(named: "ChatTextViewBackground")!
+    
+    struct ChatMessage {
+        static let sentMessage = UIColor.colorWithHex("#E7FDD7") | UIColor.colorWithHex("#205046")
+        static let receivedMessage = UIColor.colorWithHex("#FFFFFF") | UIColor.colorWithHex("#363537")
+        static let textViewBackground = UIColor.colorWithHex("#FDFFFF") | UIColor.colorWithHex("#1D1D1E")
+    }
 }
 
 class ChatMessageViewController: BaseViewController {
@@ -56,7 +58,7 @@ class ChatMessageViewController: BaseViewController {
         textView.textColor = UIColor.label
         textView.showsVerticalScrollIndicator = false
         textView.dataDetectorTypes = []
-        textView.backgroundColor = .chatTextViewBackground
+        textView.backgroundColor = .ChatMessage.textViewBackground
         textView.autocapitalizationType = .sentences
         textView.layer.cornerRadius = 21.0
         textView.layer.borderColor = UIColor.quaternaryLabel.cgColor
