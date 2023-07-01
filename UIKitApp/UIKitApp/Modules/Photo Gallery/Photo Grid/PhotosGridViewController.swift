@@ -108,4 +108,9 @@ extension PhotosGridViewController: UICollectionViewDelegate, UICollectionViewDa
         previewController.preferredContentSize = imageView.frame.size
         return previewController
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = PhotoGalleryViewController(photos: dataSource.photos, selectedIndex: indexPath.item)
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

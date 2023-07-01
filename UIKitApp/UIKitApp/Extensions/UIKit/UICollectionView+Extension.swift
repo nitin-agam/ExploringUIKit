@@ -36,6 +36,10 @@ extension UICollectionView {
     func dequeueReusableViewFooter<T: UICollectionReusableView>(with type: T.Type, for indexPath: IndexPath,ofKind kind: String = UICollectionView.elementKindSectionFooter ) -> T {
         return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as! T
     }
+    
+    func hasItemAtIndexPath(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfItems(inSection: indexPath.section)
+    }
 }
 
 extension UICollectionReusableView {

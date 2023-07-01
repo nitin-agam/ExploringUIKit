@@ -14,6 +14,8 @@
 		C70C33C22A4F20FB00F5B05C /* PhotosGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33C12A4F20FB00F5B05C /* PhotosGridViewController.swift */; };
 		C70C33C62A4F213A00F5B05C /* PhotosGridDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33C52A4F213A00F5B05C /* PhotosGridDataSource.swift */; };
 		C70C33CB2A4F2CEF00F5B05C /* PhotoGridCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33CA2A4F2CEF00F5B05C /* PhotoGridCollectionCell.swift */; };
+		C70C33CF2A50110F00F5B05C /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33CE2A50110F00F5B05C /* PhotoGalleryViewController.swift */; };
+		C70C33D12A5011B600F5B05C /* PhotoItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C33D02A5011B600F5B05C /* PhotoItemCollectionCell.swift */; };
 		C73D8D282A49B01200A1997A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D272A49B01200A1997A /* UILabel+Extension.swift */; };
 		C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */; };
 		C73D8D2D2A4A9FD000A1997A /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */; };
@@ -50,6 +52,8 @@
 		C70C33C12A4F20FB00F5B05C /* PhotosGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGridViewController.swift; sourceTree = "<group>"; };
 		C70C33C52A4F213A00F5B05C /* PhotosGridDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosGridDataSource.swift; sourceTree = "<group>"; };
 		C70C33CA2A4F2CEF00F5B05C /* PhotoGridCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridCollectionCell.swift; sourceTree = "<group>"; };
+		C70C33CE2A50110F00F5B05C /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		C70C33D02A5011B600F5B05C /* PhotoItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCollectionCell.swift; sourceTree = "<group>"; };
 		C73D8D272A49B01200A1997A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D292A49B2EE00A1997A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		C73D8D2C2A4A9FD000A1997A /* ChatMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
@@ -127,9 +131,27 @@
 		C70C33C02A4F20CF00F5B05C /* Photo Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				C70C33CC2A5010EA00F5B05C /* Photo Grid */,
+				C70C33CD2A5010F600F5B05C /* Photo Gallery */,
+			);
+			path = "Photo Gallery";
+			sourceTree = "<group>";
+		};
+		C70C33CC2A5010EA00F5B05C /* Photo Grid */ = {
+			isa = PBXGroup;
+			children = (
 				C70C33C12A4F20FB00F5B05C /* PhotosGridViewController.swift */,
 				C70C33C52A4F213A00F5B05C /* PhotosGridDataSource.swift */,
 				C70C33CA2A4F2CEF00F5B05C /* PhotoGridCollectionCell.swift */,
+			);
+			path = "Photo Grid";
+			sourceTree = "<group>";
+		};
+		C70C33CD2A5010F600F5B05C /* Photo Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				C70C33CE2A50110F00F5B05C /* PhotoGalleryViewController.swift */,
+				C70C33D02A5011B600F5B05C /* PhotoItemCollectionCell.swift */,
 			);
 			path = "Photo Gallery";
 			sourceTree = "<group>";
@@ -345,12 +367,14 @@
 				C70C33BF2A4F1EAF00F5B05C /* CommonUtility.swift in Sources */,
 				C70C33CB2A4F2CEF00F5B05C /* PhotoGridCollectionCell.swift in Sources */,
 				C75C8C7C2A44498A00B46DEF /* UIStackView+Extension.swift in Sources */,
+				C70C33CF2A50110F00F5B05C /* PhotoGalleryViewController.swift in Sources */,
 				C7809DE12A42087800206C53 /* GitHubFollowersDataSource.swift in Sources */,
 				C73D8D2A2A49B2EE00A1997A /* UIImageView+Extension.swift in Sources */,
 				C7809DDF2A41E79300206C53 /* GitHubProfileCollectionCell.swift in Sources */,
 				C7809DB12A40A1A200206C53 /* AppDelegate.swift in Sources */,
 				C7809DCB2A40B83800206C53 /* HomeControllerDataSource.swift in Sources */,
 				C7809DC92A40B66000206C53 /* HomeViewController.swift in Sources */,
+				C70C33D12A5011B600F5B05C /* PhotoItemCollectionCell.swift in Sources */,
 				C7809DDB2A40BC4200206C53 /* HomeListItemTableCell.swift in Sources */,
 				C70C33C22A4F20FB00F5B05C /* PhotosGridViewController.swift in Sources */,
 			);
