@@ -13,7 +13,7 @@ class PhotoItemCollectionCell: BaseCollectionCell, UIScrollViewDelegate, UIGestu
     private lazy var zoomScrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 5.0
+        scrollView.maximumZoomScale = 4.0
         scrollView.zoomScale = 1.0
         scrollView.delegate = self
         return scrollView
@@ -79,6 +79,38 @@ class PhotoItemCollectionCell: BaseCollectionCell, UIScrollViewDelegate, UIGestu
         zoomRect.origin.x = center.x - (center.x * zoomScrollView.zoomScale)
         zoomRect.origin.y = center.y - (center.y * zoomScrollView.zoomScale)
         return zoomRect
+    }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        if scrollView.zoomScale > 1 {
+            
+            guard let image = previewImageView.image else {
+                zoomScrollView.contentInset = .zero
+                return
+            }
+            
+            // width & height ratio
+            let widthRatio = previewImageView.frame.width / image.size.width
+            let heightRatio = previewImageView.frame.height / image.size.height
+            
+            // calculate new width and height from min ratio value
+            let ratio = min(widthRatio, heightRatio)
+            let newWidth = image.size.width * ratio
+            let newHeight = image.size.height * ratio
+            
+            // calculate left and right edge inset value
+            let leftEdgeExpression = newWidth * scrollView.zoomScale > previewImageView.frame.width
+            let leftEdgeValue = 0.5 * (leftEdgeExpression ? newWidth - previewImageView.frame.width : (scrollView.frame.width - scrollView.contentSize.width))
+            
+            // calculate top and bottom edge inset value
+            let topEdgeExpression = newHeight * scrollView.zoomScale > previewImageView.frame.height
+            let topEdgeValue = 0.5 * (topEdgeExpression ? newHeight - previewImageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
+            
+            // fixing the content inset
+            zoomScrollView.contentInset = UIEdgeInsets(top: topEdgeValue, left: leftEdgeValue, bottom: topEdgeValue, right: leftEdgeValue)
+        } else {
+            zoomScrollView.contentInset = .zero
+        }
     }
     
     func resetThumbnail() {

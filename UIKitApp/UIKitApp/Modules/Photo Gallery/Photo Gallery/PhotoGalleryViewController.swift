@@ -48,6 +48,7 @@ class PhotoGalleryViewController: BaseViewController {
     
     // MARK: - Private Methods
     private func initialSetup() {
+        view.backgroundColor = .black
         view.addSubview(collectionView)
         
         collectionView.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, topMargin: 0, leftMargin: 0, rightMargin: 0, bottomMargin: 0, width: 0, height: 0)
