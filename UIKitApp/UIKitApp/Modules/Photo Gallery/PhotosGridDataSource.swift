@@ -37,6 +37,10 @@ class PhotosGridDataSource {
             PhotoItem(imageName: "image21")
         ])
     }
+    
+    func deleteAt(_ indexPath: IndexPath) {
+        photos.remove(at: indexPath.item)
+    }
 }
 
 struct PhotoItem {
