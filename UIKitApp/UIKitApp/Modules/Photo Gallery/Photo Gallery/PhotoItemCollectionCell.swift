@@ -13,7 +13,7 @@ class PhotoItemCollectionCell: BaseCollectionCell, UIScrollViewDelegate, UIGestu
     private lazy var zoomScrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
         scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 4.0
+        scrollView.maximumZoomScale = 3.0
         scrollView.zoomScale = 1.0
         scrollView.delegate = self
         return scrollView
@@ -64,21 +64,12 @@ class PhotoItemCollectionCell: BaseCollectionCell, UIScrollViewDelegate, UIGestu
     
     @objc private func doubleTapAction(gesture: UITapGestureRecognizer) {
         if gesture.state == .ended {
-            if zoomScrollView.zoomScale == zoomScrollView.minimumZoomScale {
-                zoomScrollView.zoom(to: zoomRectangle(scale: zoomScrollView.maximumZoomScale, center: gesture.location(in: gesture.view)), animated: true)
+            if zoomScrollView.zoomScale == 1 {
+                zoomScrollView.setZoomScale(2, animated: true)
             } else {
-                zoomScrollView.setZoomScale(zoomScrollView.minimumZoomScale, animated: true)
+                zoomScrollView.setZoomScale(1, animated: true)
             }
         }
-    }
-    
-    private func zoomRectangle(scale: CGFloat, center: CGPoint) -> CGRect {
-        var zoomRect = CGRect.zero
-        zoomRect.size.height = previewImageView.frame.size.height / scale
-        zoomRect.size.width  = previewImageView.frame.size.width  / scale
-        zoomRect.origin.x = center.x - (center.x * zoomScrollView.zoomScale)
-        zoomRect.origin.y = center.y - (center.y * zoomScrollView.zoomScale)
-        return zoomRect
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {

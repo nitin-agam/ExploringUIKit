@@ -34,7 +34,8 @@ class PhotosGridDataSource {
             PhotoItem(imageName: "image18"),
             PhotoItem(imageName: "image19"),
             PhotoItem(imageName: "image20"),
-            PhotoItem(imageName: "image21")
+            PhotoItem(imageName: "image21"),
+            PhotoItem(imageName: "image22"),
         ])
     }
     
