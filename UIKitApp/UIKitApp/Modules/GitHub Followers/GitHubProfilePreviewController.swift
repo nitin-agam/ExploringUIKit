@@ -57,14 +57,14 @@ class GitHubProfilePreviewController: BaseViewController {
         
         view.addSubviews(followStatusStackView, fullNameLabel, usernameLabel, profileImageView)
         
-        followStatusStackView.makeConstraints(top: nil, left: view.leftAnchor, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, topMargin: 0, leftMargin: 12, rightMargin: 12, bottomMargin: 10, width: 0, height: 40)
+        followStatusStackView.makeConstraints(top: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, topMargin: 0, leftMargin: 12, rightMargin: 12, bottomMargin: 10, width: 0, height: 40)
         
-        fullNameLabel.makeConstraints(top: nil, left: view.leftAnchor, right: nil, bottom: followStatusStackView.topAnchor, topMargin: 0, leftMargin: 12, rightMargin: 0, bottomMargin: 0, width: 0, height: 50)
+        fullNameLabel.makeConstraints(top: nil, leading: view.leadingAnchor, trailing: nil, bottom: followStatusStackView.topAnchor, topMargin: 0, leftMargin: 12, rightMargin: 0, bottomMargin: 0, width: 0, height: 50)
         
         usernameLabel.makeConstraints(centerX: nil, centerY: fullNameLabel.centerYAnchor)
         usernameLabel.leftAnchor.constraint(equalTo: fullNameLabel.rightAnchor, constant: 5).isActive = true
         
-        profileImageView.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, bottom: fullNameLabel.topAnchor, topMargin: 0, leftMargin: 0, rightMargin: 0, bottomMargin: 0, width: 0, height: 0)
+        profileImageView.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: fullNameLabel.topAnchor, topMargin: 0, leftMargin: 0, rightMargin: 0, bottomMargin: 0, width: 0, height: 0)
     }
     
     func configure(with user: GitHubUser) {

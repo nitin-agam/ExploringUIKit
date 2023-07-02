@@ -7,6 +7,10 @@
 
 import UIKit
 
+struct AnchoredConstraints {
+    var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
+}
+
 extension UIView {
     
     func addSubviews(_ views: UIView...) {
@@ -16,42 +20,48 @@ extension UIView {
 
 extension UIView {
     
+    @discardableResult
     func makeConstraints(top: NSLayoutYAxisAnchor?,
-                         left: NSLayoutXAxisAnchor?,
-                         right: NSLayoutXAxisAnchor?,
+                         leading: NSLayoutXAxisAnchor?,
+                         trailing: NSLayoutXAxisAnchor?,
                          bottom: NSLayoutYAxisAnchor?,
                          topMargin: CGFloat,
                          leftMargin: CGFloat,
                          rightMargin: CGFloat,
                          bottomMargin: CGFloat,
                          width: CGFloat,
-                         height: CGFloat) {
+                         height: CGFloat) -> AnchoredConstraints? {
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        var anchoredConstraints = AnchoredConstraints()
         
         if let top = top {
-            self.topAnchor.constraint(equalTo: top, constant: topMargin).isActive = true
+            anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: topMargin)
         }
         
-        if let left = left {
-            self.leftAnchor.constraint(equalTo: left, constant: leftMargin).isActive = true
+        if let left = leading {
+            anchoredConstraints.leading = leadingAnchor.constraint(equalTo: left, constant: leftMargin)
         }
         
-        if let right = right {
-            self.rightAnchor.constraint(equalTo: right, constant: -rightMargin).isActive = true
+        if let right = trailing {
+            anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: right, constant: -rightMargin)
         }
         
         if let bottom = bottom {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: -bottomMargin).isActive = true
+            anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -bottomMargin)
         }
         
         if width != 0 {
-            self.widthAnchor.constraint(equalToConstant: width).isActive = true
+            anchoredConstraints.width = widthAnchor.constraint(equalToConstant: width)
         }
         
         if height != 0 {
-            self.heightAnchor.constraint(equalToConstant: height).isActive = true
+            anchoredConstraints.height = heightAnchor.constraint(equalToConstant: height)
         }
+        
+        [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height].forEach{ $0?.isActive = true }
+        
+        return anchoredConstraints
     }
     
     func makeEdgeConstraints(toView parentView: UIView, edgeMargin: CGFloat = 0) {

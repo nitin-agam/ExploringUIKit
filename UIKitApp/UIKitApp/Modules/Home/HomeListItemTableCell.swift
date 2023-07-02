@@ -37,7 +37,7 @@ class HomeListItemTableCell: BaseTableCell {
         
         addSubview(contentStackView)
         
-        contentStackView.makeConstraints(top: topAnchor, left: leftAnchor, right: rightAnchor, bottom: bottomAnchor, topMargin: 10, leftMargin: 15, rightMargin: 15, bottomMargin: 10, width: 0, height: 0)
+        contentStackView.makeConstraints(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor, topMargin: 10, leftMargin: 15, rightMargin: 15, bottomMargin: 10, width: 0, height: 0)
     }
     
     func configure(_ item: ListItem, indexPath: IndexPath) {

@@ -30,7 +30,7 @@ class GitHubProfileCollectionCell: BaseCollectionCell {
         profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        usernameLabel.makeConstraints(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, bottom: nil, topMargin: 10, leftMargin: 8, rightMargin: 8, bottomMargin: 0, width: 0, height: 0)
+        usernameLabel.makeConstraints(top: profileImageView.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: nil, topMargin: 10, leftMargin: 8, rightMargin: 8, bottomMargin: 0, width: 0, height: 0)
     }
     
     func configure(_ user: GitHubUser) {

@@ -10,7 +10,7 @@ import UIKit
 class PhotoGalleryViewController: BaseViewController {
 
     // MARK: - Properties
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -25,8 +25,17 @@ class PhotoGalleryViewController: BaseViewController {
         return collectionView
     }()
     
+    lazy var closeButton: UIButton = {
+        let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
+        let button = UIButton(type: .system)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(handleCloseTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private var photos: [PhotoItem]
     private var selectedIndex: Int = 0
+    var dismissHandler: (() -> ())?
     
     
     // MARK: - LifeCycle
@@ -48,10 +57,14 @@ class PhotoGalleryViewController: BaseViewController {
     
     // MARK: - Private Methods
     private func initialSetup() {
-        view.backgroundColor = .black
-        view.addSubview(collectionView)
         
-        collectionView.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, topMargin: 0, leftMargin: 0, rightMargin: 0, bottomMargin: 0, width: 0, height: 0)
+        view.backgroundColor = .black
+        
+        view.addSubviews(collectionView, closeButton)
+        
+        collectionView.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, topMargin: 0, leftMargin: 0, rightMargin: 0, bottomMargin: 0, width: 0, height: 0)
+        
+        closeButton.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, trailing: view.trailingAnchor, bottom: nil, topMargin: 0, leftMargin: 0, rightMargin: 4, bottomMargin: 0, width: 50, height: 50)
         
         DispatchQueue.main.async {
             self.moveToIndexPath(IndexPath(item: self.selectedIndex, section: 0), animated: false)
@@ -62,6 +75,11 @@ class PhotoGalleryViewController: BaseViewController {
         if collectionView.hasItemAtIndexPath(indexPath) {
             collectionView.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
         }
+    }
+    
+    @objc private func handleCloseTapped() {
+        closeButton.isHidden = true
+        dismissHandler?()
     }
 }
 
