@@ -13,7 +13,7 @@
     },
     {
         "title": "Photo Gallery with Zoom in/out",
-        "description": "Learn how to create a photo gallery.",
+        "description": "Explore how to create photo grid view using collection view and show photo gallery with selected photo index.",
         "slug": "Photo Gallery",
         "navigationTitle": "PhotoGallery"
     }

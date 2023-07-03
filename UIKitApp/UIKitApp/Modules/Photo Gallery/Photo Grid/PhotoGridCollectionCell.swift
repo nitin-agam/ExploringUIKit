@@ -15,10 +15,6 @@ class PhotoGridCollectionCell: BaseCollectionCell {
     
     override func initialSetup() {
         super.initialSetup()
-        
-        backgroundColor = .yellow
-        imageView.backgroundColor = .cyan
-        
         addSubview(imageView)
         imageView.makeEdgeConstraints(toView: self)
     }

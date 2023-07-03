@@ -30,12 +30,6 @@ class PhotosGridViewController: BaseViewController {
     private let numberOfItemsInRow: CGFloat = 3
     private let dataSource = PhotosGridDataSource()
     
-    private var startingFrame: CGRect?
-    private var photoGalleryController: PhotoGalleryViewController!
-    private var anchoredConstraints: AnchoredConstraints?
-    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-    private var fullScreenBeginOffset: CGFloat = 0
-    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -65,6 +59,11 @@ class PhotosGridViewController: BaseViewController {
         dataSource.deleteAt(indexPath)
         collectionView.deleteItems(at: [indexPath])
     }
+    
+    private func saveAction(for indexPath: IndexPath) {
+        guard let image = UIImage(named: self.dataSource.photos[indexPath.item].imageName) else { return }
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
 }
 
 extension PhotosGridViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -84,6 +83,10 @@ extension PhotosGridViewController: UICollectionViewDelegate, UICollectionViewDa
         UIContextMenuConfiguration(identifier: nil,
                                    previewProvider: { self.makePreview(for: indexPath.item) }) { _ in
             
+            let saveAction = UIAction(title: "Save", image: UIImage(systemName: "square.and.arrow.down")) { _ in
+                self.saveAction(for: indexPath)
+            }
+            
             let copyAction = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc")) { _ in
                 self.copyAction(for: indexPath)
             }
@@ -96,12 +99,13 @@ extension PhotosGridViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.deleteAction(for: indexPath)
             }
             
-            return UIMenu(title: "", image: nil, children: [copyAction, shareAction, deleteAction])
+            return UIMenu(title: "", image: nil, children: [saveAction, copyAction, shareAction, deleteAction])
         }
     }
     
     private func makePreview(for index: Int) -> UIViewController {
 
+        // configure a preview controller.
         let previewController = UIViewController()
         
         guard let image = UIImage(named: dataSource.photos[index].imageName) else { return previewController }
@@ -116,160 +120,8 @@ extension PhotosGridViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let controller = PhotoGalleryViewController(photos: dataSource.photos, selectedIndex: indexPath.item)
-//        navigationController?.pushViewController(controller, animated: true)
-        presentPhotoGallery(indexPath)
-    }
-}
-
-extension PhotosGridViewController: UIGestureRecognizerDelegate {
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
-    }
-    
-    private func presentPhotoGallery(_ indexPath: IndexPath) {
-        
-        // setup controller
-        setupPhotoGalleryController(indexPath)
-        
-        // setup starting position
-        setupFullScreenStartingPosition(indexPath)
-        
-        // begin animation
-        beginFullScreenAnimation()
-    }
-    
-    private func setupPhotoGalleryController(_ indexPath: IndexPath) {
         let controller = PhotoGalleryViewController(photos: dataSource.photos, selectedIndex: indexPath.item)
-        controller.view.backgroundColor = .yellow
-        photoGalleryController = controller
-        photoGalleryController.view.layer.cornerRadius = 16
-        photoGalleryController.dismissHandler = {
-            self.endFullScreenAnimation()
-        }
-        
-        // setup pan gesture
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePagGesture))
-        panGesture.delegate = self
-        photoGalleryController.view.addGestureRecognizer(panGesture)
-    }
-    
-    @objc private func handlePagGesture(gesture: UIPanGestureRecognizer) {
-        
-        if gesture.state == .began {
-            fullScreenBeginOffset = photoGalleryController.collectionView.contentOffset.y
-        }
-        
-        if photoGalleryController.collectionView.contentOffset.y > 0 {
-            return
-        }
-        
-        let translationY = gesture.translation(in: photoGalleryController.view).y
-        if gesture.state == .changed {
-            if translationY > 0 {
-                let trueOffset = translationY - fullScreenBeginOffset
-                var scale = 1 - trueOffset / 1000
-                scale = min(1, scale)
-                scale = max(0.5, scale)
-                let transform = CGAffineTransform(scaleX: scale, y: scale)
-                photoGalleryController.view.transform = transform
-            }
-        } else if gesture.state == .ended {
-            if translationY > 0 {
-                self.endFullScreenAnimation()
-            }
-        }
-    }
-    
-    private func setupStartingFrame(_ indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoGridCollectionCell else {
-            return
-        }
-        
-        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else {
-            return
-        }
-        
-        self.startingFrame = startingFrame
-    }
-    
-    private func setupFullScreenStartingPosition(_ indexPath: IndexPath) {
-        
-        setupStartingFrame(indexPath)
-        
-        let fullScreenView = photoGalleryController.view!
-        view.addSubview(fullScreenView)
-        
-        addChild(photoGalleryController)
-        
-        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
-        
-        guard let startingFrame = startingFrame else { return }
-        
-        self.anchoredConstraints = fullScreenView.makeConstraints(top: view.topAnchor, leading: view.leadingAnchor, trailing: nil, bottom: nil, topMargin: startingFrame.origin.y, leftMargin: startingFrame.origin.x, rightMargin: 0, bottomMargin: 0, width: startingFrame.width, height: startingFrame.height)
-        self.view.layoutIfNeeded()
-    }
-    
-    private func beginFullScreenAnimation() {
-        UIView.animate(withDuration: 0.7,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.7,
-                       options: .curveEaseOut) {
-            
-            self.blurEffectView.alpha = 1
-            
-            self.anchoredConstraints?.top?.constant = 0
-            self.anchoredConstraints?.leading?.constant = 0
-            self.anchoredConstraints?.width?.constant = self.view.frame.width
-            self.anchoredConstraints?.height?.constant = self.view.frame.height
-            
-            self.view.layoutIfNeeded()
-            
-            self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
-            
-//            guard let cell = self.appFullScreenController?.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
-//            cell.todayCollectionCell.topConstraint?.constant = 48
-//            cell.layoutIfNeeded()
-        }
-    }
-    
-    private func endFullScreenAnimation() {
-        UIView.animate(withDuration: 0.7,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0.7,
-                       options: .curveEaseOut) {
-            
-            self.blurEffectView.alpha = 0
-            
-            guard let frame = self.startingFrame else { return }
-            
-            self.anchoredConstraints?.top?.constant = frame.origin.y
-            self.anchoredConstraints?.leading?.constant = frame.origin.x
-            self.anchoredConstraints?.width?.constant = frame.width
-            self.anchoredConstraints?.height?.constant = frame.height
-            
-            self.view.layoutIfNeeded()
-            
-            self.photoGalleryController?.collectionView.contentOffset = .zero
-            
-           // guard let cell = self.photoGalleryController?.collectionView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
-            self.photoGalleryController.closeButton.alpha = 0
-           // cell.todayCollectionCell.topConstraint?.constant = 24
-          //  cell.layoutIfNeeded()
-            
-            self.photoGalleryController.view.transform = .identity
-            
-            if let tabBarFrame = self.tabBarController?.tabBar.frame {
-                self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height
-            }
-            
-        } completion: { _ in
-            self.photoGalleryController?.view?.removeFromSuperview()
-            self.photoGalleryController?.removeFromParent()
-        }
+        controller.modalPresentationStyle = .overFullScreen
+        present(controller, animated: true)
     }
 }
