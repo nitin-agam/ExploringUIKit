@@ -46,9 +46,7 @@ Using UITableView, it is easy to create user interface for chat messages. Progra
 
 UICollectionView is a powerful component that allows you to display and manage a collection of items in a grid-like or custom layout. It provides a flexible foundation for creating various types of interfaces, including photo galleries. It's important to note that implementing zoom in/out functionality can involve more complex logic, such as managing zoom scales, calculating zoom levels, and handling gesture interactions. But, you can implement all of these features easily by programatically. 
 
-<p float="center">
-  https://github.com/nitin-agam/ExploringUIKit/assets/12906999/54d0ae7b-ad7a-4bae-b687-28cdf67beb75
-</p>
+https://github.com/nitin-agam/ExploringUIKit/assets/12906999/54d0ae7b-ad7a-4bae-b687-28cdf67beb75
 
 **Learning stack:**
 
