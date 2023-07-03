@@ -40,7 +40,23 @@ Using UITableView, it is easy to create user interface for chat messages. Progra
 - How to format the date to display in a customized way?
 - How to sort and group messages according to date?
 
+<br>
 
+### Titbit 3 - Photo Gallery with Zoom in/out
+
+UICollectionView is a powerful component that allows you to display and manage a collection of items in a grid-like or custom layout. It provides a flexible foundation for creating various types of interfaces, including photo galleries. It's important to note that implementing zoom in/out functionality can involve more complex logic, such as managing zoom scales, calculating zoom levels, and handling gesture interactions. But, you can implement all of these features easily by programatically. 
+
+<p float="center">
+  <img src="https://github.com/nitin-agam/ExploringUIKit/assets/12906999/54d0ae7b-ad7a-4bae-b687-28cdf67beb75" width="50%" />
+</p>
+
+**Learning stack:**
+
+- How to create a grid layout with equal spacing around UICollectionView items?
+- Perform actions like Save, Share, Copy, and Delete operations on an image by showing the context menu.
+- Show a photo gallery with all photos and a selected index.
+- Implement a zoom in/out feature using UIScrollView.
+- Set the zoom scale according to the image size. 
 
 and many other things...
 

@@ -95,7 +95,7 @@ class PhotoItemCollectionCell: BaseCollectionCell, UIScrollViewDelegate, UIGestu
             
             // calculate top and bottom edge inset value
             let topEdgeExpression = newHeight * scrollView.zoomScale > previewImageView.frame.height
-            let topEdgeValue = 0.55 * (topEdgeExpression ? newHeight - previewImageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
+            let topEdgeValue = 0.5 * (topEdgeExpression ? newHeight - previewImageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
             
             // fixing the content inset
             zoomScrollView.contentInset = UIEdgeInsets(top: topEdgeValue, left: leftEdgeValue, bottom: topEdgeValue, right: leftEdgeValue)
