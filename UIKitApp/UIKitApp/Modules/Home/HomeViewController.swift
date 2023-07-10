@@ -60,6 +60,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0: controller = GitHubFollowersController()
         case 1: controller = ChatMessageViewController()
         case 2: controller = PhotosGridViewController()
+        case 3: controller = VideoReelsViewController()
         default: break
         }
         
