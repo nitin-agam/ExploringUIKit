@@ -42,9 +42,6 @@
 		C7809DDD2A41E74000206C53 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7809DDC2A41E74000206C53 /* BaseCollectionCell.swift */; };
 		C7809DDF2A41E79300206C53 /* GitHubProfileCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7809DDE2A41E79300206C53 /* GitHubProfileCollectionCell.swift */; };
 		C7809DE12A42087800206C53 /* GitHubFollowersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7809DE02A42087800206C53 /* GitHubFollowersDataSource.swift */; };
-		C7CB57322A5BD34400B94092 /* VideoReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB57312A5BD34400B94092 /* VideoReelsViewController.swift */; };
-		C7CB57342A5BD36100B94092 /* VideoReelsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB57332A5BD36100B94092 /* VideoReelsDataSource.swift */; };
-		C7CB57362A5BD37800B94092 /* VideoReelTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB57352A5BD37800B94092 /* VideoReelTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,9 +82,6 @@
 		C7809DDC2A41E74000206C53 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
 		C7809DDE2A41E79300206C53 /* GitHubProfileCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProfileCollectionCell.swift; sourceTree = "<group>"; };
 		C7809DE02A42087800206C53 /* GitHubFollowersDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersDataSource.swift; sourceTree = "<group>"; };
-		C7CB57312A5BD34400B94092 /* VideoReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReelsViewController.swift; sourceTree = "<group>"; };
-		C7CB57332A5BD36100B94092 /* VideoReelsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReelsDataSource.swift; sourceTree = "<group>"; };
-		C7CB57352A5BD37800B94092 /* VideoReelTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReelTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +222,6 @@
 				C7809DCC2A40B8BB00206C53 /* GitHub Followers */,
 				C73D8D2B2A4A9FB800A1997A /* ChatUI */,
 				C70C33C02A4F20CF00F5B05C /* Photo Gallery */,
-				C7CB57302A5BD31E00B94092 /* Video Reels */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -279,16 +272,6 @@
 				C7809DDC2A41E74000206C53 /* BaseCollectionCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C7CB57302A5BD31E00B94092 /* Video Reels */ = {
-			isa = PBXGroup;
-			children = (
-				C7CB57312A5BD34400B94092 /* VideoReelsViewController.swift */,
-				C7CB57332A5BD36100B94092 /* VideoReelsDataSource.swift */,
-				C7CB57352A5BD37800B94092 /* VideoReelTableCell.swift */,
-			);
-			path = "Video Reels";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,11 +357,9 @@
 				C70C33A72A4B248D00F5B05C /* UIColor+Extension.swift in Sources */,
 				C7809DD12A40B91200206C53 /* BaseViewController.swift in Sources */,
 				C7809DD62A40BB4B00206C53 /* UITableView+Extension.swift in Sources */,
-				C7CB57342A5BD36100B94092 /* VideoReelsDataSource.swift in Sources */,
 				C73D8D372A4AA4EA00A1997A /* ChatHeaderDateLabel.swift in Sources */,
 				C7809DCE2A40B8F500206C53 /* GitHubFollowersController.swift in Sources */,
 				C73D8D2F2A4AA07A00A1997A /* ChatMessageTableCell.swift in Sources */,
-				C7CB57322A5BD34400B94092 /* VideoReelsViewController.swift in Sources */,
 				C70C33B92A4D855400F5B05C /* UIButton+Extension.swift in Sources */,
 				C73D8D332A4AA14A00A1997A /* String+Extension.swift in Sources */,
 				C75C8C782A4209F100B46DEF /* UICollectionView+Extension.swift in Sources */,
@@ -395,7 +376,6 @@
 				C7809DC92A40B66000206C53 /* HomeViewController.swift in Sources */,
 				C70C33D12A5011B600F5B05C /* PhotoItemCollectionCell.swift in Sources */,
 				C7809DDB2A40BC4200206C53 /* HomeListItemTableCell.swift in Sources */,
-				C7CB57362A5BD37800B94092 /* VideoReelTableCell.swift in Sources */,
 				C70C33C22A4F20FB00F5B05C /* PhotosGridViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
