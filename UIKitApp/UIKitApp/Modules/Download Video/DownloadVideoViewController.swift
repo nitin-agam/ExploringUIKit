@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 extension UIColor {
     static let pulsingBackground = UIColor(r: 21, g: 22, b: 33)
@@ -153,6 +154,28 @@ class DownloadVideoViewController: UIViewController {
         animation.fillMode = .forwards
         circleShapeLayer.add(animation, forKey: "pulsingAnimation")
     }
+    
+    
+    // MARK - Save Video
+    private func saveVideo(from url: URL) {
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+        }) { (success, error) in
+            if success {
+                self.showAlert(with: "Video saved successfully!")
+            } else {
+                self.showAlert(with: error?.localizedDescription ?? "Something is wrong")
+            }
+        }
+    }
+    
+    private func showAlert(with message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Status", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            self.present(alert, animated: true)
+        }
+    }
 }
 
 extension DownloadVideoViewController: URLSessionDownloadDelegate {
@@ -172,5 +195,10 @@ extension DownloadVideoViewController: URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         isDownloading = false
+        
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let destinationURL = documentsDirectory.appendingPathComponent(downloadTask.originalRequest?.url?.lastPathComponent ?? "")
+        try? FileManager.default.moveItem(at: location, to: destinationURL)
+        saveVideo(from: destinationURL)
     }
 }
