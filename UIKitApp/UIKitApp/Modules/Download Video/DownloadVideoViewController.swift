@@ -162,7 +162,7 @@ class DownloadVideoViewController: UIViewController {
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
         }) { (success, error) in
             if success {
-                self.showAlert(with: "Video saved successfully!")
+                self.showAlert(with: "Video saved to photo gallery successfully!")
             } else {
                 self.showAlert(with: error?.localizedDescription ?? "Something is wrong")
             }

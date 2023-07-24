@@ -19,7 +19,7 @@
     },
     {
         "title": "Download Video with Progress",
-        "description": "Explore how to download a video file from a URL and show progress in percentage with animation.",
+        "description": "Explore how to download a video file from a URL and show progress in percentage with animation. After downloaded, save it to the photo gallery.",
         "slug": "Download Progress",
         "navigationTitle": "DownloadProgress"
     }
