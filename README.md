@@ -56,7 +56,23 @@ https://github.com/nitin-agam/ExploringUIKit/assets/12906999/54d0ae7b-ad7a-4bae-
 - Implement a zoom in/out feature using UIScrollView.
 - Set the zoom scale according to the image size. 
 
-and many other things...
+<br>
+
+### Titbit 4 - Download Video with Progress
+
+In your apps, downloading a video (or other format) file and showing continuous progress with animation is a common task when dealing with media content or file transfers. To achieve this, you can use the URLSession class, along with a CAShapeLayer with an animation using CABasicAnimation to visualize the download progress.
+
+https://github.com/nitin-agam/ExploringUIKit/assets/12906999/5ab9e6ba-f2a0-42cb-9623-84e3854a9897
+
+**Learning stack:**
+
+- How to download a video (or any other file) from a URL using the URLSession class.
+- How to draw a circular ring shape layer using UIBezierPath and CAShapeLayer? 
+- How to implement pulsing animation using CABasicAnimation?
+- How to show continuous downloading progress to the user? 
+- How to save the video file in the photo gallery after downloading it?
+
+and many more...
 
 </br>
 
