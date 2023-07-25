@@ -123,10 +123,9 @@ class DownloadVideoViewController: UIViewController {
         percentageLabel.text = "Starting..."
         
         let configuration = URLSessionConfiguration.default
-        let operationQueue = OperationQueue()
         let urlSession = URLSession(configuration: configuration,
                                     delegate: self,
-                                    delegateQueue: operationQueue)
+                                    delegateQueue: nil)
         
         if let url = URL(string: fileUrlString) {
             let downloadTask = urlSession.downloadTask(with: url)
